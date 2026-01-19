@@ -1,15 +1,17 @@
 Class {
-	#name : #UkeTabProvider,
-	#superclass : #Object,
+	#name : 'UkeTabProvider',
+	#superclass : 'Object',
 	#instVars : [
 		'url',
 		'hasFloatingChords',
 		'isTransposable'
 	],
-	#category : 'Ukulele-Core'
+	#category : 'Ukulele-Core',
+	#package : 'Ukulele',
+	#tag : 'Core'
 }
 
-{ #category : #example }
+{ #category : 'example' }
 UkeTabProvider class >> example [
 	<sampleInstance>
 	^ UkeTabProvider new
@@ -19,17 +21,17 @@ UkeTabProvider class >> example [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabProvider >> hasFloatingChords [
 	^ self maLazyFrom: self hasFloatingChordsDescription
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabProvider >> hasFloatingChords: anObject [
 	hasFloatingChords := anObject
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeTabProvider >> hasFloatingChordsDescription [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -37,17 +39,17 @@ UkeTabProvider >> hasFloatingChordsDescription [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabProvider >> isTransposable [
 	^ self maLazyFrom: self isTransposableDescription
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabProvider >> isTransposable: anObject [
 	isTransposable := anObject
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeTabProvider >> isTransposableDescription [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -55,29 +57,29 @@ UkeTabProvider >> isTransposableDescription [
 		yourself
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 UkeTabProvider >> printOn: aStream [
 	aStream
 		nextPutAll: 'Tabs at ';
 		print: url
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UkeTabProvider >> servesURL: aUrl [ 
 	^ self url host = aUrl host
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabProvider >> url [
 	^ self maLazyFrom: self urlDescription
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabProvider >> url: aUrl [
 	url := aUrl copy clearPath; queryRemoveAll
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeTabProvider >> urlDescription [
 	<magritteDescription>
 	^ MAUrlDescription new

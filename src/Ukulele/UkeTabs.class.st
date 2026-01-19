@@ -1,16 +1,18 @@
 Class {
-	#name : #UkeTabs,
-	#superclass : #Object,
+	#name : 'UkeTabs',
+	#superclass : 'Object',
 	#instVars : [
 		'url',
 		'hasFloatingChords',
 		'areChangesPinpointed',
 		'isTransposable'
 	],
-	#category : #'Ukulele-Core'
+	#category : 'Ukulele-Core',
+	#package : 'Ukulele',
+	#tag : 'Core'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UkeTabs class >> exampleCreating [
 	^ UkeTabs new
 			url: 'https://www.ukulele-tabs.com/uke-songs/uke-songs/jason-mraz/im-yours-uke-tab-11804.html' asUrl;
@@ -20,17 +22,17 @@ UkeTabs class >> exampleCreating [
 			yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabs >> areChangesPinpointed [
 	^ areChangesPinpointed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabs >> areChangesPinpointed: anObject [
 	areChangesPinpointed := anObject
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeTabs >> areChangesPinpointedDescription [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -39,7 +41,7 @@ UkeTabs >> areChangesPinpointedDescription [
 		yourself
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 UkeTabs >> defaultProvider [
 	self url ifNil: [ ^ nil ].
 	^ UkuleleTutor instance tabProviders
@@ -47,20 +49,20 @@ UkeTabs >> defaultProvider [
 			ifNone: [ UkuleleTutor instance ensureTabProviderAt: self url ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabs >> hasFloatingChords [
 	^ self provider
 		ifNotNil: [ :p | p hasFloatingChords ]
 		ifNil: [ hasFloatingChords ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabs >> hasFloatingChords: anObject [
 	hasFloatingChords := anObject.
 	self updateTabProvider: [ :tp | tp hasFloatingChords: hasFloatingChords ].
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeTabs >> hasFloatingChordsDescription [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -70,20 +72,20 @@ UkeTabs >> hasFloatingChordsDescription [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabs >> isTransposable [
 	^ self provider
 		ifNotNil: [ :p | p isTransposable ]
 		ifNil: [ isTransposable ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabs >> isTransposable: aBoolean [
 	isTransposable := aBoolean.
 	self updateTabProvider: [ :tp | tp isTransposable: isTransposable ].
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeTabs >> isTransposableDescription [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -93,12 +95,12 @@ UkeTabs >> isTransposableDescription [
 		yourself
 ]
 
-{ #category : #viewing }
+{ #category : 'viewing' }
 UkeTabs >> present [
 	^ Smalltalk tools webBrowser openOn: self url.
 ]
 
-{ #category : #viewing }
+{ #category : 'viewing' }
 UkeTabs >> presentDescription [
 	<magritteActionDescription>
 	^ MAActionDescription new
@@ -107,7 +109,7 @@ UkeTabs >> presentDescription [
 			yourself
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 UkeTabs >> printOn: aStream [
 	
 	aStream
@@ -115,12 +117,12 @@ UkeTabs >> printOn: aStream [
 		maPrint: self urlDescription for: self
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 UkeTabs >> provider [
 	^ self defaultProvider
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeTabs >> providerDescription [
 	"<magritteDescription>"
 	^ MAToOneRelationDescription new
@@ -135,24 +137,24 @@ UkeTabs >> providerDescription [
 		yourself
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 UkeTabs >> updateTabProvider: aBlock [
 
 	self provider ifNotNil: [ :p | aBlock value: p ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabs >> url [
 	^ url
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeTabs >> url: aUrl [
 	url := aUrl.
 	self updateTabProvider: [ :e | ]
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeTabs >> urlDescription [
 	<magritteDescription>
 	^ MAUrlDescription new

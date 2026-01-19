@@ -1,14 +1,16 @@
 Class {
-	#name : #UkeLesson,
-	#superclass : #Object,
+	#name : 'UkeLesson',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'url'
 	],
-	#category : #'Ukulele-Core'
+	#category : 'Ukulele-Core',
+	#package : 'Ukulele',
+	#tag : 'Core'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 UkeLesson class >> example [
 	<sampleInstance>
 	
@@ -17,17 +19,17 @@ UkeLesson class >> example [
 		yourself.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeLesson >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeLesson >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeLesson >> nameDescription [
 	<magritteDescription>
 	^ MAStringDescription new
@@ -35,12 +37,12 @@ UkeLesson >> nameDescription [
 		yourself
 ]
 
-{ #category : #viewing }
+{ #category : 'viewing' }
 UkeLesson >> present [
-	^ Smalltalk tools webBrowser openOn: self url.
+	^ Smalltalk tools webBrowser new open: self url.
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeLesson >> presentDescription [
 	<magritteActionDescription>
 	^ MAActionDescription new
@@ -49,7 +51,7 @@ UkeLesson >> presentDescription [
 			yourself
 ]
 
-{ #category : #viewing }
+{ #category : 'viewing' }
 UkeLesson >> printOn: aStream [
 	
 	aStream
@@ -57,17 +59,17 @@ UkeLesson >> printOn: aStream [
 		maPrint: self nameDescription for: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeLesson >> url [
 	^ url
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeLesson >> url: anObject [
 	url := anObject
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 UkeLesson >> urlDescription [
 	<magritteDescription>
 	^ MAUrlDescription new

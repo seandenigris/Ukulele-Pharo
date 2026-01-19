@@ -1,10 +1,12 @@
 Class {
-	#name : #UkeLessonSpecification,
-	#superclass : #TestCase,
-	#category : #'Ukulele-Specification'
+	#name : 'UkeLessonSpecification',
+	#superclass : 'TestCase',
+	#category : 'Ukulele-Specification',
+	#package : 'Ukulele',
+	#tag : 'Specification'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UkeLessonSpecification >> testExample [
 
 	| lesson |
